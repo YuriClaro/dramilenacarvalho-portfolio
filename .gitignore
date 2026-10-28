@@ -30,6 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# outros gerenciadores de pacote (este projeto usa npm)
+pnpm-lock.yaml
+pnpm-workspace.yaml
+yarn.lock
+
 # env files (o .env.example fica versionado)
 .env*
 !.env.example
