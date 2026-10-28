@@ -1,47 +1,20 @@
-import Image from "next/image";
-
 import { portfolioCases, portfolioContent } from "@/data/portfolio";
 
+import { PortfolioCase } from "./portfolio-case";
 import { Reveal } from "./reveal";
 
 export function Portfolio() {
   return (
     <section id="portfolio">
       <div className="container">
-        <div className="section-header">
+        <Reveal className="section-header">
           <h2>{portfolioContent.heading}</h2>
           <p>{portfolioContent.subheading}</p>
-        </div>
+        </Reveal>
         <div className="portfolio-grid">
-          {portfolioCases.map((item) => (
-            <Reveal key={item.title}>
-              <div className="portfolio-item">
-                <div className="portfolio-compare">
-                  <figure>
-                    <Image
-                      src={item.before}
-                      alt={`${item.title} - antes`}
-                      sizes="(max-width: 768px) 50vw, 20vw"
-                      placeholder="blur"
-                    />
-                    <figcaption>Antes</figcaption>
-                  </figure>
-                  <figure>
-                    <Image
-                      src={item.after}
-                      alt={`${item.title} - depois`}
-                      sizes="(max-width: 768px) 50vw, 20vw"
-                      placeholder="blur"
-                    />
-                    <figcaption>Depois</figcaption>
-                  </figure>
-                </div>
-                <div className="portfolio-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <span className="portfolio-tag">{item.tag}</span>
-                </div>
-              </div>
+          {portfolioCases.map((item, index) => (
+            <Reveal key={item.title} delay={(index % 2) * 100}>
+              <PortfolioCase item={item} />
             </Reveal>
           ))}
         </div>

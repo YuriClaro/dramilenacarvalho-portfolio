@@ -1,3 +1,6 @@
+import Image from "next/image";
+
+import logoLight from "@/images/logos/logo_light.png";
 import { site, socialLinks } from "@/data/site";
 
 export function Footer() {
@@ -5,6 +8,13 @@ export function Footer() {
     <footer>
       <div className="container">
         <div className="footer-content">
+          <Image
+            src={logoLight}
+            alt=""
+            className="footer-logo-img"
+            width={72}
+            height={72}
+          />
           <div className="footer-logo">{site.name}</div>
           <p className="footer-tagline">{site.footerText}</p>
           <div className="footer-social">

@@ -6,13 +6,13 @@ export function Services() {
   return (
     <section id="servicos" className="services">
       <div className="container">
-        <div className="section-header">
+        <Reveal className="section-header">
           <h2>{servicesContent.heading}</h2>
           <p>{servicesContent.subheading}</p>
-        </div>
+        </Reveal>
         <div className="services-grid">
-          {services.map((service) => (
-            <Reveal key={service.title}>
+          {services.map((service, index) => (
+            <Reveal key={service.title} delay={index * 80}>
               <div className="service-card">
                 <div className="service-icon">
                   <i className={service.icon} />

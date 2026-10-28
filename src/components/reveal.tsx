@@ -1,17 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
+  /** Atraso da animacao em ms, para aparicoes escalonadas. */
+  delay?: number;
 };
 
 /**
  * Anima o elemento quando ele entra na viewport.
  * O estilo vive em globals.css (.reveal / .reveal.is-visible).
  */
-export function Reveal({ children, className = "" }: RevealProps) {
+export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -39,10 +47,15 @@ export function Reveal({ children, className = "" }: RevealProps) {
     return () => observer.disconnect();
   }, []);
 
+  const style = delay
+    ? ({ "--reveal-delay": `${delay}ms` } as CSSProperties)
+    : undefined;
+
   return (
     <div
       ref={ref}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`.trim()}
+      style={style}
     >
       {children}
     </div>

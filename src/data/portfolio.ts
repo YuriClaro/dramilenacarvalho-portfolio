@@ -1,9 +1,13 @@
 import type { StaticImageData } from "next/image";
 
-import before14 from "@/images/14inicial.png";
-import after14 from "@/images/14final.png";
-import before25 from "@/images/25inicial.png";
-import after25 from "@/images/25final.png";
+import before12e13 from "@/images/canal/12e13inicial.png";
+import after12e13 from "@/images/canal/12e13final.png";
+import before14 from "@/images/canal/14inicial.png";
+import after14 from "@/images/canal/14final.png";
+import before25 from "@/images/canal/25inicial.png";
+import after25 from "@/images/canal/25final.png";
+import before36 from "@/images/canal/36inicial.png";
+import after36 from "@/images/canal/36final.png";
 
 export type PortfolioCase = {
   title: string;
@@ -33,5 +37,19 @@ export const portfolioCases: PortfolioCase[] = [
     tag: "Caso clínico",
     before: before25,
     after: after25,
+  },
+  {
+    title: "Caso 3",
+    description: "Resultado de tratamento.",
+    tag: "Caso clínico",
+    before: before36,
+    after: after36,
+  },
+  {
+    title: "Caso 4",
+    description: "Resultado de tratamento.",
+    tag: "Caso clínico",
+    before: before12e13,
+    after: after12e13,
   },
 ];
