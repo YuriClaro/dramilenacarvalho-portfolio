@@ -692,26 +692,26 @@ section {
     border-radius: var(--radius);
     font-family: var(--font-inter), sans-serif;
     font-size: 0.9rem;
-    background: #f0e7d5;
-    color: #212842;
+    background: #1c2238;
+    color: #f0e7d5;
     transition: all 0.2s ease;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(33, 40, 66, 0.55);
+    color: rgba(240, 231, 213, 0.55);
     opacity: 1;
 }
 
-/* Autofill do navegador (Nome, Telefone, E-mail) mantem o fundo branco */
+/* Autofill do navegador (Nome, Telefone, E-mail) mantem o fundo azul */
 .form-group input:-webkit-autofill,
 .form-group input:-webkit-autofill:hover,
 .form-group input:-webkit-autofill:focus,
 .form-group input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px #f0e7d5 inset;
-    box-shadow: 0 0 0 1000px #f0e7d5 inset;
-    -webkit-text-fill-color: #212842;
-    caret-color: #212842;
+    -webkit-box-shadow: 0 0 0 1000px #1c2238 inset;
+    box-shadow: 0 0 0 1000px #1c2238 inset;
+    -webkit-text-fill-color: #f0e7d5;
+    caret-color: #f0e7d5;
     transition: background-color 9999s ease-out 0s;
 }
 
@@ -2243,14 +2243,14 @@ header::before {
 /* Formulario */
 .form-group input,
 .form-group textarea {
-    background: #f0e7d5;
-    color: #212842;
+    background: #1c2238;
+    color: #f0e7d5;
     border-color: rgba(240, 231, 213, 0.22);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(33, 40, 66, 0.55);
+    color: rgba(240, 231, 213, 0.55);
     opacity: 1;
 }
 
@@ -2258,10 +2258,10 @@ header::before {
 .form-group input:-webkit-autofill:hover,
 .form-group input:-webkit-autofill:focus,
 .form-group input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px #f0e7d5 inset;
-    box-shadow: 0 0 0 1000px #f0e7d5 inset;
-    -webkit-text-fill-color: #212842;
-    caret-color: #212842;
+    -webkit-box-shadow: 0 0 0 1000px #1c2238 inset;
+    box-shadow: 0 0 0 1000px #1c2238 inset;
+    -webkit-text-fill-color: #f0e7d5;
+    caret-color: #f0e7d5;
 }
 
 .form-group input:focus,
@@ -2386,8 +2386,215 @@ footer {
     color: rgba(240, 231, 213, 0.7);
 }
 
+/* --- Equipamentos --- */
+.equipamentos {
+    background: var(--secondary);
+}
+
+/* Carrossel (padrao shadcn + Embla) */
+.carousel {
+    position: relative;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+}
+
+.carousel-content {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.equip-carousel {
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.equip-slide {
+    padding: 0.5rem;
+}
+
+.ui-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) * 1.5);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 12px 28px rgba(0, 0, 0, 0.15);
+    transition: border-color 0.3s ease;
+}
+
+.ui-card:hover,
+.ui-card:has(.equip-card.is-open) {
+    border-color: var(--gold);
+}
+
+.equip-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    font: inherit;
+    color: var(--foreground);
+    text-align: center;
+    background: transparent;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.equip-card:active {
+    opacity: 0.92;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0 0;
+}
+
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: var(--muted-foreground);
+    opacity: 0.3;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        width 0.5s ease,
+        opacity 0.5s ease,
+        background-color 0.5s ease;
+}
+
+.carousel-dot:hover {
+    opacity: 0.5;
+}
+
+.carousel-dot.is-active {
+    width: 16px;
+    background: var(--gold);
+    opacity: 1;
+}
+
+.carousel-dot:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.equip-card:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.equip-photo {
+    position: absolute;
+    inset: 12%;
+    display: block;
+    animation: equipFloat 5s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s ease;
+}
+
+.equip-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.35));
+}
+
+.equip-card:hover .equip-photo,
+.equip-card.is-open .equip-photo {
+    transform: scale(0.82) translateY(-14%);
+}
+
+.equip-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem 1.1rem 1.15rem;
+    background: linear-gradient(
+        to top,
+        rgba(26, 32, 54, 0.98) 55%,
+        rgba(26, 32, 54, 0)
+    );
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+}
+
+.equip-card:hover .equip-info,
+.equip-card.is-open .equip-info,
+.equip-card:focus-visible .equip-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.equip-name {
+    font-family: var(--font-playfair), serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.equip-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--foreground);
+}
+
+.equip-hint {
+    margin-top: 1.25rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+}
+
+@keyframes equipFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .equip-desc {
+        font-size: 0.8rem;
+    }
+}
+
 /* --- 9. Movimento reduzido --- */
 @media (prefers-reduced-motion: reduce) {
+    .equip-photo {
+        animation: none !important;
+    }
+
     html {
         scroll-behavior: auto;
     }
