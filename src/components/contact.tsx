@@ -11,7 +11,7 @@ export function Contact() {
       <div className="container">
         <Reveal className="section-header">
           <h2>Entre em Contato</h2>
-          <p>Agende sua consulta e cuide do seu sorriso</p>
+          <p>Sua clínica busca uma dentista? Vamos conversar.</p>
         </Reveal>
         <div className="contact-content">
           <div className="contact-info">

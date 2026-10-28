@@ -18,7 +18,11 @@ export function Hero() {
         <div className="hero-content">
           <div className="hero-text">
             <p className="subtitle hero-stagger" style={delay(0)}>
-              {site.tagline}
+              {site.taglineLines.map((line) => (
+                <span key={line} className="subtitle-line">
+                  {line}
+                </span>
+              ))}
             </p>
             <h1 className="hero-stagger" style={delay(1)}>
               {heroContent.title}
@@ -34,7 +38,7 @@ export function Hero() {
                 rel="noopener noreferrer"
               >
                 <i className="fab fa-whatsapp" />
-                Agendar Consulta
+                Entre em contato
               </a>
               <a href="#portfolio" className="btn btn-secondary">
                 <i className="fas fa-images" />

@@ -16,7 +16,7 @@ export const services: Service[] = [
     title: "Limpeza",
     description:
       "Prevenção e manutenção para preservar a saúde da sua boca a longo prazo.",
-    items: ["Raspagem periodontal", "Profilaxia", "Laserterapia"],
+    items: ["Profilaxia", "Laserterapia"],
   },
   {
     icon: "fas fa-tooth",

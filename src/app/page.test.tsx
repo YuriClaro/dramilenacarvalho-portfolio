@@ -19,23 +19,28 @@ describe("Home", () => {
     expect(container.querySelector("section#depoimentos")).toBeNull();
   });
 
+  it("mantém a seção de equipamentos oculta", () => {
+    const { container } = render(<Home />);
+    expect(container.querySelector("section#equipamentos")).toBeNull();
+  });
+
   it("mostra o título principal e o rodapé com o CRO", () => {
     render(<Home />);
 
     expect(
       screen.getByRole("heading", {
         level: 1,
-        name: /cuidando da sua saúde/i,
+        name: /dra\. milena carvalho/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getAllByText(new RegExp(site.cro)).length).toBeGreaterThan(0);
   });
 
-  it("aponta os botões de agendamento para o WhatsApp", () => {
+  it("aponta os botões de contato para o WhatsApp", () => {
     render(<Home />);
 
     const links = screen.getAllByRole("link", {
-      name: /agendar consulta|falar no whatsapp/i,
+      name: /entre em contato|falar no whatsapp/i,
     });
     expect(links.length).toBeGreaterThanOrEqual(2);
     for (const link of links) {

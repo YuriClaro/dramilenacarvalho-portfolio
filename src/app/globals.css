@@ -2589,6 +2589,77 @@ footer {
     }
 }
 
+/* --- Hero: 3 linhas e fonte dos títulos (Cormorant Garamond) --- */
+.hero-text .subtitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.subtitle-line {
+    display: block;
+}
+
+.subtitle-line:first-child {
+    font-family: var(--font-playfair), serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--gold);
+}
+
+.subtitle-line:not(:first-child) {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: var(--muted-foreground);
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: 0.005em;
+}
+
+@media (min-width: 969px) {
+    .hero-text h1 {
+        font-size: 3.6rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.9rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 968px) {
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.9rem;
+    }
+
+    .subtitle-line:first-child {
+        font-size: 1.45rem;
+    }
+
+    .subtitle-line:not(:first-child) {
+        font-size: 0.85rem;
+    }
+}
+
 /* --- 9. Movimento reduzido --- */
 @media (prefers-reduced-motion: reduce) {
     .equip-photo {
