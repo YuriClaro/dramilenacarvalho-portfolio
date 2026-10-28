@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+build
+coverage
+package-lock.json
+next-env.d.ts
+index.html
+src/app/globals.css

@@ -1,0 +1,75 @@
+# Dra. Ana Silva - Portfólio
+
+Site de portfólio odontológico em Next.js (App Router) com TypeScript e Tailwind, pronto para deploy na Vercel.
+
+## Stack
+
+- Next.js 16 (App Router) + React 19
+- Tailwind CSS 4
+- TypeScript
+- ESLint + Prettier
+- Jest + Testing Library
+- Husky + lint-staged
+
+## Como rodar
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Ambiente de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Qualidade e build:
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+## Estrutura
+
+- `src/app/page.tsx` - monta as seções da página
+- `src/app/layout.tsx` - fontes (Inter e Playfair via `next/font`) e metadata
+- `src/app/globals.css` - estilos e tema
+- `src/app/api/contact/route.ts` - API do formulário de contato
+- `src/components/` - seções (hero, sobre, serviços, portfólio, depoimentos, contato, rodapé)
+- `src/data/` - **todo o conteúdo editável** (nome, CRO, contatos, serviços, casos, depoimentos)
+- `src/images/` - fotos usadas no site
+- `src/lib/contact.ts` - validação do formulário
+
+## Trocando os dados reais
+
+Os textos, contatos e CRO de exemplo ficam em `src/data/`. Edite apenas esses arquivos, sem mexer nos componentes:
+
+- `site.ts` - nome, CRO, endereço, telefone, e-mails, horários, redes sociais
+- `services.ts` - serviços
+- `portfolio.ts` - casos (para usar fotos de antes/depois, adicione as imagens em `src/images/`)
+- `testimonials.ts` - depoimentos
+
+## Formulário de contato
+
+A rota `POST /api/contact` valida os dados e tem proteção anti-spam (honeypot).
+
+Sem configuração, a mensagem é apenas registrada no log do servidor. Para enviar e-mail de verdade, crie uma conta na [Resend](https://resend.com) e defina as variáveis (veja `.env.example`) em `.env.local` ou na Vercel (Project Settings > Environment Variables):
+
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL`
+- `CONTACT_FROM_EMAIL` (opcional; use um domínio verificado)
+
+## Deploy na Vercel
+
+1. Envie o repositório para o GitHub.
+2. Em [vercel.com/new](https://vercel.com/new), importe o repositório. A Vercel detecta o Next.js sozinha.
+3. (Opcional) Configure as variáveis do formulário e clique em Deploy.
+
+## Husky / lint-staged
+
+O pré-commit executa o lint-staged para formatar e rodar o lint nos arquivos alterados. Rode `npm run prepare` após instalar as dependências se os hooks não estiverem ativos.

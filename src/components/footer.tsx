@@ -1,0 +1,31 @@
+import { site, socialLinks } from "@/data/site";
+
+export function Footer() {
+  return (
+    <footer>
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-logo">{site.name}</div>
+          <p className="footer-tagline">{site.footerText}</p>
+          <div className="footer-social">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="social-link"
+                aria-label={link.label}
+              >
+                <i className={link.icon} />
+              </a>
+            ))}
+          </div>
+          <div className="footer-divider" />
+          <p className="footer-text">
+            © {site.year} {site.name}. Todos os direitos reservados. |{" "}
+            {site.cro}
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
