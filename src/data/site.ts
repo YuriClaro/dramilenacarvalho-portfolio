@@ -15,30 +15,40 @@ export type Credential = {
   description: string;
 };
 
+export type Experience = {
+  period: string;
+  role: string;
+  place: string;
+  description: string;
+};
+
+const whatsappNumber = "5512991948135";
+const whatsappMessage = "Olá, Dra. Milena! Gostaria de agendar uma consulta.";
+
 /**
- * Dados gerais do site. Troque os valores de exemplo pelos reais aqui,
+ * Dados gerais do site. Edite os valores aqui,
  * sem precisar mexer nos componentes.
  */
 export const site = {
-  name: "Dra. Ana Silva",
-  fullName: "Dra. Ana Silva - Cirurgiã-Dentista",
-  title: "Dr. Ana Silva - Dentista | Clínica Odontológica",
+  name: "Dra. Milena Carvalho",
+  fullName: "Dra. Milena Carvalho - Cirurgiã-Dentista",
+  title: "Dra. Milena Carvalho - Cirurgiã-Dentista | São José dos Campos",
   description:
-    "Portfólio profissional da Dra. Ana Silva - Dentista especializada em estética dental, ortodontia e reabilitação oral em São Paulo.",
-  tagline: "Cuidado Odontológico Premium",
-  cro: "CRO-SP 12345",
-  year: 2024,
-  footerText:
-    "Cuidado odontológico premium com excelência, humanização e tecnologia avançada.",
+    "Dra. Milena Carvalho, cirurgiã-dentista (CRO-SP 154.804) em São José dos Campos/SP. Limpeza, endodontia, reabilitação e clareamento.",
+  tagline: "Cirurgiã-Dentista | CRO-SP 154.804 | Clínica geral",
+  cro: "CRO-SP 154.804",
+  year: 2026,
+  footerText: "Cuidando da sua saúde através do seu sorriso!",
   contact: {
     addressLines: [
-      "Av. Paulista, 1000 - Sala 1505",
-      "Bela Vista, São Paulo - SP, 01310-100",
+      "R. Armando D'Oliveira Cobra, 50 - Jardim Aquarius",
+      "São José dos Campos - SP, 12246-002",
     ],
-    phone: "(11) 3456-7890",
-    whatsapp: "(11) 98765-4321",
-    emails: ["contato@draanasilva.com.br", "agendamento@draanasilva.com.br"],
-    hours: ["Segunda a Sexta: 08:00 - 18:00", "Sábado: 08:00 - 12:00"],
+    whatsapp: "(12) 99194-8135",
+    whatsappUrl: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+    email: "dramilenascarvalho@gmail.com",
+    instagram: "@dramilenascarvalho",
+    instagramUrl: "https://www.instagram.com/dramilenascarvalho",
   },
 } as const;
 
@@ -47,51 +57,79 @@ export const navItems: NavItem[] = [
   { label: "Sobre", href: "#sobre" },
   { label: "Serviços", href: "#servicos" },
   { label: "Portfólio", href: "#portfolio" },
-  { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Instagram", href: "#", icon: "fab fa-instagram" },
-  { label: "Facebook", href: "#", icon: "fab fa-facebook-f" },
-  { label: "WhatsApp", href: "#", icon: "fab fa-whatsapp" },
-  { label: "LinkedIn", href: "#", icon: "fab fa-linkedin-in" },
+  {
+    label: "Instagram",
+    href: site.contact.instagramUrl,
+    icon: "fab fa-instagram",
+  },
+  {
+    label: "WhatsApp",
+    href: site.contact.whatsappUrl,
+    icon: "fab fa-whatsapp",
+  },
+  {
+    label: "E-mail",
+    href: `mailto:${site.contact.email}`,
+    icon: "fas fa-envelope",
+  },
 ];
 
 export const heroContent = {
-  title: "Sorrisos Saudáveis, Confiança Renovada",
+  title: "Cuidando da sua saúde através do seu sorriso!",
   description:
-    "Especializada em estética dental, ortodontia e reabilitação oral. Transformo sorrisos com tecnologia avançada e atendimento humanizado, oferecendo o mais alto padrão de excelência odontológica.",
+    "Cirurgiã-dentista com 3 anos de experiência clínica, com ênfase em raspagem periodontal, endodontia e dentística reabilitadora. Atendimento em São José dos Campos/SP, do diagnóstico ao acompanhamento do seu caso.",
 };
 
 export const aboutContent = {
   heading: "Sobre Mim",
-  subheading: "Conheça a trajetória e valores que guiam meu trabalho",
+  subheading: "Conheça minha trajetória e minha forma de cuidar",
+  experienceHeading: "Experiência profissional",
   paragraphs: [
-    "Formada em Odontologia pela Universidade de São Paulo (USP), com especialização em Ortodontia e Ortopedia Facial. Há mais de 12 anos dedicando minha carreira ao cuidado integral da saúde bucal e à transformação estética de sorrisos.",
-    "Meu compromisso é oferecer atendimento personalizado, com diagnóstico preciso, tratamento humanizado e resultados naturais. Utilizo as mais modernas técnicas e materiais odontológicos para garantir conforto, segurança e excelência em cada procedimento.",
+    "Sou cirurgiã-dentista com 3 anos de experiência clínica, com ênfase em raspagem periodontal, endodontia e dentística reabilitadora. Tenho aperfeiçoamento em endodontia e estou em atualização em dentística.",
+    "Atuo em diagnóstico, planejamento e execução dos tratamentos, com acompanhamento contínuo e proservação dos casos, sempre priorizando excelência técnica e cuidado integral ao paciente.",
   ],
 };
+
+export const experiences: Experience[] = [
+  {
+    period: "2023 – Atual",
+    role: "Clínica Geral",
+    place: "Odonto+Sul",
+    description:
+      "Diagnóstico e planejamento odontológico, raspagem periodontal, profilaxia, restaurações, lentes de contato dental e coroas, tratamento e retratamento endodôntico, exodontias simples, escaneamento intraoral e laserterapia.",
+  },
+  {
+    period: "2024 – 2025",
+    role: "Endodontia",
+    place: "Sorridents",
+    description:
+      "Tratamentos e retratamentos endodônticos, com condução completa dos casos: diagnóstico, documentação e acompanhamento radiográfico.",
+  },
+];
 
 export const credentials: Credential[] = [
   {
     icon: "fas fa-graduation-cap",
     title: "Formação",
-    description: "USP - Odontologia",
+    description: "Odontologia - Universidade Nove de Julho (2022)",
   },
   {
     icon: "fas fa-certificate",
-    title: "Especialização",
-    description: "Ortodontia e Ortopedia Facial",
+    title: "Aperfeiçoamento",
+    description: "Endodontia - OdontoSales (2024)",
+  },
+  {
+    icon: "fas fa-book-open",
+    title: "Atualização",
+    description: "Dentística - UNESP (em andamento, conclusão em nov/2026)",
   },
   {
     icon: "fas fa-award",
     title: "Experiência",
-    description: "+12 anos de atuação",
-  },
-  {
-    icon: "fas fa-heart",
-    title: "Missão",
-    description: "Atendimento humanizado",
+    description: "3 anos de atuação clínica",
   },
 ];

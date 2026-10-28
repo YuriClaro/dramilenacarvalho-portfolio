@@ -9,36 +9,47 @@ describe("Home", () => {
   it("renderiza todas as seções da página", () => {
     const { container } = render(<Home />);
 
-    for (const id of [
-      "inicio",
-      "sobre",
-      "servicos",
-      "portfolio",
-      "depoimentos",
-      "contato",
-    ]) {
+    for (const id of ["inicio", "sobre", "servicos", "portfolio", "contato"]) {
       expect(container.querySelector(`section#${id}`)).toBeInTheDocument();
     }
+  });
+
+  it("não renderiza mais a seção de depoimentos", () => {
+    const { container } = render(<Home />);
+    expect(container.querySelector("section#depoimentos")).toBeNull();
   });
 
   it("mostra o título principal e o rodapé com o CRO", () => {
     render(<Home />);
 
     expect(
-      screen.getByRole("heading", { level: 1, name: /sorrisos saudáveis/i }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: /cuidando da sua saúde/i,
+      }),
     ).toBeInTheDocument();
-    expect(screen.getByText(new RegExp(site.cro))).toBeInTheDocument();
+    expect(screen.getAllByText(new RegExp(site.cro)).length).toBeGreaterThan(0);
   });
 
-  it("renderiza os e-mails de contato como links mailto", () => {
+  it("aponta os botões de agendamento para o WhatsApp", () => {
     render(<Home />);
 
-    for (const email of site.contact.emails) {
-      expect(screen.getByRole("link", { name: email })).toHaveAttribute(
-        "href",
-        `mailto:${email}`,
-      );
+    const links = screen.getAllByRole("link", {
+      name: /agendar consulta|falar no whatsapp/i,
+    });
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link).toHaveAttribute("href", site.contact.whatsappUrl);
     }
+    expect(site.contact.whatsappUrl).toContain("wa.me/5512991948135");
+  });
+
+  it("renderiza o e-mail de contato como link mailto", () => {
+    render(<Home />);
+
+    expect(
+      screen.getByRole("link", { name: site.contact.email }),
+    ).toHaveAttribute("href", `mailto:${site.contact.email}`);
   });
 
   it("abre e fecha o menu mobile", async () => {

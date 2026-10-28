@@ -7,56 +7,39 @@ export type Service = {
 
 export const servicesContent = {
   heading: "Serviços Oferecidos",
-  subheading: "Tratamentos odontológicos completos para sua saúde e bem-estar",
+  subheading: "Cuidado clínico completo para a sua saúde bucal",
 };
 
 export const services: Service[] = [
   {
-    icon: "fas fa-smile",
-    title: "Estética Dental",
+    icon: "fas fa-shield-alt",
+    title: "Limpeza",
     description:
-      "Transforme seu sorriso com clareamento, facetas e restaurações estéticas.",
+      "Prevenção e manutenção para preservar a saúde da sua boca a longo prazo.",
+    items: ["Raspagem periodontal", "Profilaxia", "Laserterapia"],
+  },
+  {
+    icon: "fas fa-tooth",
+    title: "Endodontia",
+    description:
+      "Tratamento do canal com diagnóstico, documentação e acompanhamento radiográfico.",
     items: [
-      "Clareamento dental a laser",
-      "Facetas de porcelana",
-      "Restaurações estéticas",
-      "Contorno gengival",
+      "Tratamento endodôntico",
+      "Retratamento endodôntico",
+      "Pinos intrarradiculares",
     ],
   },
   {
     icon: "fas fa-teeth",
-    title: "Ortodontia",
+    title: "Reabilitação",
     description:
-      "Alinhamento dental com aparelhos fixos, móveis e alinhadores invisíveis.",
-    items: [
-      "Aparelhos ortodônticos convencionais",
-      "Alinhadores transparentes",
-      "Ortodontia para adultos",
-      "Manutenção e contenção",
-    ],
+      "Recuperação da função e da estética dos seus dentes com dentística reabilitadora.",
+    items: ["Restaurações", "Lentes de contato dental", "Coroas"],
   },
   {
-    icon: "fas fa-tooth",
-    title: "Reabilitação Oral",
-    description:
-      "Recuperação funcional e estética da boca com implantes e próteses.",
-    items: [
-      "Implantes dentários",
-      "Próteses fixas e removíveis",
-      "Reabilitação oral complexa",
-      "Cirurgia oral menor",
-    ],
-  },
-  {
-    icon: "fas fa-shield-alt",
-    title: "Odontologia Preventiva",
-    description:
-      "Prevenção e manutenção para preservar sua saúde bucal a longo prazo.",
-    items: [
-      "Limpeza profissional",
-      "Flúor e selantes",
-      "Diagnóstico precoce",
-      "Educação em higiene bucal",
-    ],
+    icon: "fas fa-smile",
+    title: "Clareamento",
+    description: "Clareamento dental para um sorriso mais claro e harmônico.",
+    items: [],
   },
 ];

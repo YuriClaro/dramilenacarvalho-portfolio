@@ -1075,6 +1075,61 @@ section {
     max-width: 400px;
 }
 
+/* Sobre: coluna unica (sem foto) */
+.about-single {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-heading {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+}
+
+.experience-item {
+    position: relative;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.25rem - 6px);
+    top: 0.45rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.experience-period {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 0.02em;
+}
+
+.experience-item h4 {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.15rem 0 0.35rem;
+}
+
+.experience-item p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 /* Menu mobile funcional */
 @media (max-width: 768px) {
     nav {

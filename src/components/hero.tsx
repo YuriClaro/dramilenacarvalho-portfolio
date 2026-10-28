@@ -13,13 +13,18 @@ export function Hero() {
             <h1>{heroContent.title}</h1>
             <p>{heroContent.description}</p>
             <div className="hero-buttons">
-              <a href="#contato" className="btn btn-primary">
-                <i className="fas fa-calendar-check" />
+              <a
+                href={site.contact.whatsappUrl}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-whatsapp" />
                 Agendar Consulta
               </a>
               <a href="#portfolio" className="btn btn-secondary">
                 <i className="fas fa-images" />
-                Ver Portfólio
+                Ver Casos
               </a>
             </div>
           </div>

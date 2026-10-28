@@ -1,4 +1,4 @@
-# Dra. Ana Silva - Portfólio
+# Dra. Milena Carvalho - Cirurgiã-Dentista
 
 Site de portfólio odontológico em Next.js (App Router) com TypeScript e Tailwind, pronto para deploy na Vercel.
 
@@ -40,19 +40,18 @@ npm run build
 - `src/app/layout.tsx` - fontes (Inter e Playfair via `next/font`) e metadata
 - `src/app/globals.css` - estilos e tema
 - `src/app/api/contact/route.ts` - API do formulário de contato
-- `src/components/` - seções (hero, sobre, serviços, portfólio, depoimentos, contato, rodapé)
-- `src/data/` - **todo o conteúdo editável** (nome, CRO, contatos, serviços, casos, depoimentos)
+- `src/components/` - seções (hero, sobre, serviços, casos clínicos, contato, rodapé)
+- `src/data/` - **todo o conteúdo editável** (nome, CRO, contatos, formação, experiência, serviços, casos)
 - `src/images/` - fotos usadas no site
 - `src/lib/contact.ts` - validação do formulário
 
 ## Trocando os dados reais
 
-Os textos, contatos e CRO de exemplo ficam em `src/data/`. Edite apenas esses arquivos, sem mexer nos componentes:
+Textos, contatos e CRO ficam em `src/data/`. Edite apenas esses arquivos, sem mexer nos componentes:
 
-- `site.ts` - nome, CRO, endereço, telefone, e-mails, horários, redes sociais
+- `site.ts` - nome, CRO, endereço, WhatsApp, e-mail, Instagram, formação e experiência
 - `services.ts` - serviços
-- `portfolio.ts` - casos (para usar fotos de antes/depois, adicione as imagens em `src/images/`)
-- `testimonials.ts` - depoimentos
+- `portfolio.ts` - casos clínicos (títulos e descrições ainda genéricos; adicione fotos em `src/images/`)
 
 ## Formulário de contato
 

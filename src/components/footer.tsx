@@ -8,16 +8,22 @@ export function Footer() {
           <div className="footer-logo">{site.name}</div>
           <p className="footer-tagline">{site.footerText}</p>
           <div className="footer-social">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="social-link"
-                aria-label={link.label}
-              >
-                <i className={link.icon} />
-              </a>
-            ))}
+            {socialLinks.map((link) => {
+              const external = link.href.startsWith("http");
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="social-link"
+                  aria-label={link.label}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  <i className={link.icon} />
+                </a>
+              );
+            })}
           </div>
           <div className="footer-divider" />
           <p className="footer-text">

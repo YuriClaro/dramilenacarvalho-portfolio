@@ -10,10 +10,20 @@ export function Contact() {
       <div className="container">
         <div className="section-header">
           <h2>Entre em Contato</h2>
-          <p>Agende sua consulta e transforme seu sorriso hoje mesmo</p>
+          <p>Agende sua consulta e cuide do seu sorriso</p>
         </div>
         <div className="contact-content">
           <div className="contact-info">
+            <a
+              href={contact.whatsappUrl}
+              className="btn btn-primary btn-block"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fab fa-whatsapp" />
+              Falar no WhatsApp
+            </a>
+
             <div className="contact-item">
               <div className="contact-icon">
                 <i className="fas fa-map-marker-alt" />
@@ -33,14 +43,18 @@ export function Contact() {
 
             <div className="contact-item">
               <div className="contact-icon">
-                <i className="fas fa-phone" />
+                <i className="fab fa-whatsapp" />
               </div>
               <div className="contact-details">
-                <h4>Telefone</h4>
+                <h4>WhatsApp</h4>
                 <p>
-                  {contact.phone}
-                  <br />
-                  WhatsApp: {contact.whatsapp}
+                  <a
+                    href={contact.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.whatsapp}
+                  </a>
                 </p>
               </div>
             </div>
@@ -52,29 +66,25 @@ export function Contact() {
               <div className="contact-details">
                 <h4>E-mail</h4>
                 <p>
-                  {contact.emails.map((email, index) => (
-                    <span key={email}>
-                      {index > 0 && <br />}
-                      <a href={`mailto:${email}`}>{email}</a>
-                    </span>
-                  ))}
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </p>
               </div>
             </div>
 
             <div className="contact-item">
               <div className="contact-icon">
-                <i className="fas fa-clock" />
+                <i className="fab fa-instagram" />
               </div>
               <div className="contact-details">
-                <h4>Horário de Atendimento</h4>
+                <h4>Instagram</h4>
                 <p>
-                  {contact.hours.map((line, index) => (
-                    <span key={line}>
-                      {index > 0 && <br />}
-                      {line}
-                    </span>
-                  ))}
+                  <a
+                    href={contact.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {contact.instagram}
+                  </a>
                 </p>
               </div>
             </div>
